@@ -1,0 +1,9 @@
+postgres-data
+
+bconnect-opdracht-frontend/.angular
+bconnect-opdracht-frontend/node_modules
+bconnect-opdracht-frontend/dist
+
+bconnect-opdracht-backend/.idea
+bconnect-opdracht-backend/.mvn
+bconnect-opdracht-backend/target
