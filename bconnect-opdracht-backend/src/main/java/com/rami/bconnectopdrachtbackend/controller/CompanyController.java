@@ -2,7 +2,7 @@ package com.rami.bconnectopdrachtbackend.controller;
 
 import com.rami.bconnectopdrachtbackend.dto.CompanyDTO;
 import com.rami.bconnectopdrachtbackend.model.Company;
-import com.rami.bconnectopdrachtbackend.dao.CompanyRepository;
+import com.rami.bconnectopdrachtbackend.repository.CompanyRepository;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

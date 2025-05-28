@@ -1,4 +1,4 @@
-package com.rami.bconnectopdrachtbackend.dao;
+package com.rami.bconnectopdrachtbackend.repository;
 
 import com.rami.bconnectopdrachtbackend.model.Company;
 import org.springframework.data.jpa.repository.JpaRepository;

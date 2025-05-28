@@ -1,0 +1,78 @@
+<mat-card class="card">
+  <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+    <h2>Add New Company</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Company Name</mat-label>
+      <input matInput formControlName="companyName">
+      <mat-error *ngIf="companyForm.get('companyName')?.hasError('required')">
+        Naam is verplicht
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="telephoneNumber">
+      <mat-error *ngIf="companyForm.get('telephoneNumber')?.hasError('required')">
+        Telefoonnummer is verplicht
+      </mat-error>
+      <mat-error *ngIf="companyForm.get('telephoneNumber')?.hasError('pattern')">
+        Vul een 10 cijferig nummer in
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Employees</mat-label>
+      <mat-select formControlName="employees">
+        <mat-option value="">Select</mat-option>
+        <mat-option *ngFor="let employee of employeeOptions" [value]="employee">{{ employee }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="companyForm.get('employees')?.hasError('required')">
+        Aantal medewerkers is verplicht
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>CoC Number</mat-label>
+      <input matInput formControlName="coCNumber">
+      <mat-error *ngIf="companyForm.get('coCNumber')?.hasError('pattern')">
+        8 tot 12 cijfers vereist
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>VAT Number</mat-label>
+      <input matInput formControlName="vatNumber">
+      <mat-error *ngIf="companyForm.get('vatNumber')?.hasError('pattern')">
+        Formaat: 9 cijfers + B0 + 1 tot 2 cijfers
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>IBAN</mat-label>
+      <input matInput formControlName="ibanNumber">
+      <mat-error *ngIf="companyForm.get('ibanNumber')?.hasError('pattern')">
+        NLXXBANK0000000000
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Budget</mat-label>
+      <input matInput type="number" formControlName="budget">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+      <mat-hint align="end">
+        {{ companyForm.get('description')?.value?.length || 0 }}/1000
+      </mat-hint>
+    </mat-form-field>
+
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <button mat-raised-button color="primary" type="submit" class="full-width">
+      Save Company
+    </button>
+  </form>
+</mat-card>
